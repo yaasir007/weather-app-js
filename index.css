@@ -32,3 +32,11 @@ input:focus {
   outline: none;
 }
 
+#main {
+  margin-block: 3rem;
+  padding: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5rem;
+}
