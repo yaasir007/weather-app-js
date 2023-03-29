@@ -1,4 +1,5 @@
-const searchData = document.querySelector("#search");
+const btnElement = document.querySelector(".btn");
+const searchElement = document.querySelector("#search");
 
 const resultBox = () => {
   const mainElement = document.querySelector('#main');
@@ -12,13 +13,14 @@ const resultBox = () => {
   const weatherCity = document.createElement('div');
   weatherCity.className = "weather__city";
 
-
-
   mainElement.append(weatherType, weatherTemp, weatherCity);
 }
 
-searchData.addEventListener('keydown', (e) => {
-  console.log(e.target);
+btnElement.addEventListener("click", (e) => {
+  e.preventDefault();
 
-  resultBox();
+  const searchValue = searchElement.value;
+
+  console.log(searchValue);
+  // resultBox();
 });

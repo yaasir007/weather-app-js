@@ -32,6 +32,19 @@ input:focus {
   outline: none;
 }
 
+button {
+  margin-left: .5rem;
+  padding: 1rem;
+  border-radius: 50%;
+  border: none;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  background-color: transparent;
+}
+
+button i {
+  font-size: 1.2rem;
+}
+
 #main {
   margin-block: 3rem;
   padding: 1rem;
