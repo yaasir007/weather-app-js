@@ -1,26 +1,36 @@
 const btnElement = document.querySelector(".btn");
 const searchElement = document.querySelector("#search");
 
-const resultBox = () => {
-  const mainElement = document.querySelector('#main');
+const apiKey = CONFIG.api_key;
+const apiHost = CONFIG.api_host;
 
-  const weatherType = document.createElement('div');
-  weatherType.className = "weather__type";
+const weatherType = document.querySelector(".weather__type");
+const weatherTemp = document.querySelector(".weather__temp");
+const weatherCity = document.querySelector(".weather__city");
 
-  const weatherTemp= document.createElement('div');
-  weatherTemp.className = "weather__temp";
+const fetchData = async(value) => {
+  const options = {
+    method: 'GET',
+    headers: {
+      'X-RapidAPI-Key': apiKey,
+      'X-RapidAPI-Host': apiHost,
+    }
+  };
 
-  const weatherCity = document.createElement('div');
-  weatherCity.className = "weather__city";
+  let url = `https://weatherapi-com.p.rapidapi.com/current.json?q=${value}`;
+  let response = await fetch(url, options);
+  let data = await response.json();
 
-  mainElement.append(weatherType, weatherTemp, weatherCity);
+  weatherType.innerHTML = data.current.condition.text;
+  weatherTemp.innerText = data.current.temp_c;
+  weatherCity.innerHTML = data.location.name;
+  
 }
+
 
 btnElement.addEventListener("click", (e) => {
   e.preventDefault();
-
   const searchValue = searchElement.value;
+  fetchData(searchValue);
 
-  console.log(searchValue);
-  // resultBox();
 });
