@@ -1,14 +1,14 @@
 const btnElement = document.querySelector(".btn");
 const searchElement = document.querySelector("#search");
+
+const mainElement = document.querySelector("#main");
+
+
 const apiKey = CONFIG.api_key;
 const apiHost = CONFIG.api_host;
 const weatherType = document.querySelector(".weather__type");
 const weatherTemp = document.querySelector(".weather__temp");
 const weatherCity = document.querySelector(".weather__city");
-
-
-
-
 
 //Credentials for API , Headers
 const fetchData = async(value) => {
